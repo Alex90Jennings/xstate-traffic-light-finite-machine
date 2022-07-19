@@ -51,16 +51,20 @@ function App() {
   const [state, send] = useMachine(trafficLightMachine)
 
   return (
-  <div className="App three-rows">
-    <section>
-      <button  className={state.value === 'green' ? 'green' : ''} onClick={() => send("SWITCH_YELLOW")}>Switch</button>
+  <div className="App three-columns">
+    <section></section>
+    <section className="three-rows traffic-light">
+      <section>
+        <button className={state.value === 'red' ? 'red' : 'grey'} onClick={() => send("SWITCH_GREEN")}>Switch</button>
+      </section>
+      <section>
+        <button className={state.value === 'yellow' ? 'yellow' : 'grey'} onClick={() => send("SWITCH_RED")}>Switch</button>
+      </section>
+      <section>
+        <button  className={state.value === 'green' ? 'green' : 'grey'} onClick={() => send("SWITCH_YELLOW")}>Switch</button>
+      </section>
     </section>
-    <section>
-      <button className={state.value === 'yellow' ? 'yellow' : ''} onClick={() => send("SWITCH_RED")}>Switch</button>
-    </section>
-    <section>
-      <button className={state.value === 'red' ? 'red' : ''} onClick={() => send("SWITCH_GREEN")}>Switch</button>
-    </section>
+    <section></section>
   </div>);
 }
 
