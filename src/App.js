@@ -52,14 +52,14 @@ function App() {
 
   return (
   <div className="App three-rows">
-    <section className={state.value === 'green' ? 'green' : ''}>
-      <button onClick={() => send("SWITCH_YELLOW")}>Switch</button>
+    <section>
+      <button  className={state.value === 'green' ? 'green' : ''} onClick={() => send("SWITCH_YELLOW")}>Switch</button>
     </section>
-    <section className={state.value === 'yellow' ? 'yellow' : ''}>
-      <button onClick={() => send("SWITCH_RED")}>Switch</button>
+    <section>
+      <button className={state.value === 'yellow' ? 'yellow' : ''} onClick={() => send("SWITCH_RED")}>Switch</button>
     </section>
-    <section className={state.value === 'red' ? 'red' : ''}>
-      <button onClick={() => send("SWITCH_GREEN")}>Switch</button>
+    <section>
+      <button className={state.value === 'red' ? 'red' : ''} onClick={() => send("SWITCH_GREEN")}>Switch</button>
     </section>
   </div>);
 }
