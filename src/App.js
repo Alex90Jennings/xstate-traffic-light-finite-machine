@@ -12,6 +12,9 @@ const trafficLightMachine = createMachine({
         "SWITCH_GREEN": {
           target: "green"
         }
+      },
+      after: {
+        3000: { target: 'green' }
       }
     },
     "yellow": {
@@ -19,6 +22,9 @@ const trafficLightMachine = createMachine({
         "SWITCH_RED": {
           target: "red"
         }
+      },
+      after: {
+        3000: { target: 'red' }
       }
     },
     "green": {
@@ -26,6 +32,9 @@ const trafficLightMachine = createMachine({
         "SWITCH_YELLOW": {
           target: "yellow"
         }
+      },
+      after: {
+        3000: { target: 'yellow' }
       }
     }
   }
@@ -40,7 +49,7 @@ trafficLightMachineService.send({ type: 'RESOLVE' });
 
 function App() {
   const [state, send] = useMachine(trafficLightMachine)
-  
+
   return (
   <div className="App three-rows">
     <section className={state.value === 'green' ? 'green' : ''}>
